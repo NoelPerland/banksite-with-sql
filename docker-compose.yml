@@ -1,0 +1,30 @@
+services:
+  nextjs:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env.production 
+    environment:
+      - NODE_ENV=production 
+    depends_on:
+      - express 
+
+  express:
+    build: ./backend
+    ports:
+      - "3003:3003"
+
+  mysql:
+    image: mysql:5.7
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bank
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
