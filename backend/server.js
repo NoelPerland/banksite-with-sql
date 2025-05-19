@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 
 // MySQL Connection
 const pool = mysql.createPool({
-  host: "localhost",
+  host: "mysql", // MySQL service name in Docker Compose (not localhost)
   user: "root",
   password: "root",
   database: "bank",
-  port: 8889, // MAMP MySQL port
+  port: 3306, // Use the MySQL container's default port
 });
 
 // Helper function to execute SQL queries
