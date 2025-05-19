@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+
+# npm package lock files
+package-lock.json
+
+
+
+
+# Build directories
+/.next
+/build
+/dist
+
+
